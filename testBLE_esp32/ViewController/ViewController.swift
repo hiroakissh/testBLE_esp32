@@ -172,20 +172,20 @@ extension ViewController: CBPeripheralDelegate {
         if(self.kRXCBCharacteristic_1 != nil) {
             print("kRXCBCharacteristic_1は")
             print(self.kRXCBCharacteristic_1)
-            print("受信の関数呼び込んだよ")
+            print("受信の関数呼び込み")
             startReciving_1()
         }
         if(self.kRXCBCharacteristic_2 != nil) {
             print("kRXCBCharacteristic_2は")
             print(self.kRXCBCharacteristic_2)
-            print("受信の関数呼び込んだよ")
+            print("受信の関数呼び込み")
             startReciving_2()
         }
 
     }
 
     private func startReciving_1() {
-        print("関数が呼ばれたよ")
+        print("関数が呼び出し")
         print("1台目")
         guard let kRXCBCharacteristic_1 = kRXCBCharacteristic_1 else {
             return
@@ -195,7 +195,7 @@ extension ViewController: CBPeripheralDelegate {
     }
 
     private func startReciving_2() {
-        print("関数が呼ばれたよ")
+        print("関数が呼び出し")
         print("2台目")
         guard let kRXCBCharacteristic_2 = kRXCBCharacteristic_2 else {
             return
@@ -223,8 +223,7 @@ extension ViewController: CBPeripheralDelegate {
 
     /// データ更新時に呼ばれる
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("値が更新されているよ")
-        print(#function)
+        print("値の更新")
 
         if error != nil {
             print(error.debugDescription)
@@ -236,7 +235,7 @@ extension ViewController: CBPeripheralDelegate {
     }
 
     private func updateWithData(data : Data) {
-        print("ラベルの値を書き換えました")
+        print("ラベルの値を書き換え")
         if let dataString = String(data: data, encoding: String.Encoding.utf8) {
             print(dataString)
             counterLabel.text = dataString
