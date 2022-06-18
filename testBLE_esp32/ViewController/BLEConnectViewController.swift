@@ -9,6 +9,7 @@ import UIKit
 import CoreBluetooth
 
 class BLEConnectViewController: UIViewController {
+    @IBOutlet weak var inputUUIDTextFeild: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class BLEConnectViewController: UIViewController {
 
 extension BLEConnectViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        <#code#>
+        print("CentralManager didUpdateState")
     }
 
 
