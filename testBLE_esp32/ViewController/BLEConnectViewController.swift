@@ -19,10 +19,12 @@ class BLEConnectViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func backButton(_ sender: Any) {
+    @IBAction private func backButton(_ sender: Any) {
         dismiss(animated: true)
     }
-    @IBAction func connectButton(_ sender: Any) {
+    @IBAction private func connectButton(_ sender: Any) {
+    }
+    @IBAction private func disConnectButton(_ sender: Any) {
     }
 }
 

@@ -121,6 +121,16 @@
                                     <action selector="connectButton:" destination="egj-uS-7ii" eventType="touchUpInside" id="B0H-0v-Zhh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCk-ob-j8y">
+                                <rect key="frame" x="150" y="602" width="114" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="切断"/>
+                                <connections>
+                                    <action selector="disConnectButton:" destination="egj-uS-7ii" eventType="touchUpInside" id="i3k-JO-bQQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tcF-ja-ojP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
