@@ -37,6 +37,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="BLE接続画面に移動"/>
+                                <connections>
+                                    <action selector="moveButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLS-hw-ddQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -44,7 +47,7 @@
                     </view>
                     <connections>
                         <outlet property="counterLabel" destination="g4a-Cw-gff" id="2aC-J7-HfK"/>
-                        <segue destination="egj-uS-7ii" kind="presentation" modalPresentationStyle="fullScreen" id="DmZ-pf-SYT"/>
+                        <segue destination="egj-uS-7ii" kind="presentation" identifier="move" modalPresentationStyle="fullScreen" id="DmZ-pf-SYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,13 +61,24 @@
                     <view key="view" contentMode="scaleToFill" id="fvp-KV-5oM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fZ-rY-WWl">
+                                <rect key="frame" x="36" y="65" width="53" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                <connections>
+                                    <action selector="backButton:" destination="egj-uS-7ii" eventType="touchUpInside" id="G7N-DS-YMJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tcF-ja-ojP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apx-ee-HBL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="125"/>
+            <point key="canvasLocation" x="1044.9275362318842" y="124.55357142857142"/>
         </scene>
     </scenes>
     <resources>

@@ -48,6 +48,9 @@ class ViewController: UIViewController {
         setup()
     }
 
+    @IBAction func moveButtonAction(_ sender: Any) {
+        performSegue(withIdentifier: "move", sender: nil)
+    }
 }
 
 //MARK : - CBCentralManagerDelegate
