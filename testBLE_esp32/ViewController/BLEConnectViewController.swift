@@ -14,16 +14,48 @@ class BLEConnectViewController: UIViewController {
     @IBOutlet private weak var inputUUIDTextField: UITextField!
 
     private let uuidKEY = "uuidKEY"
+    private var serviceUUID = ""
+    private var characteristicUUID = ""
+    private var serviceUUIDList: [String] = []
+    private var characteristicUUIDList: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+
+    func validationServiceUUIDRecord() -> Bool {
+        serviceUUID = inputUUIDTextField.text ?? ""
+        for str in serviceUUIDList {
+            if serviceUUID == str {
+                print("追加しない")
+                return true
+            }
+        }
+        return false
+    }
+
+    func validationCharacteristicUUIDRecord() -> Bool {
+        characteristicUUID = inputUUIDTextField.text ?? ""
+        for str in characteristicUUIDList {
+            if characteristicUUID == str {
+                print("追加しない")
+                return true
+            }
+        }
+        return false
+    }
+
     @IBAction private func backButton(_ sender: Any) {
         dismiss(animated: true)
     }
     @IBAction private func connectButton(_ sender: Any) {
+        let flag = validationServiceUUIDRecord()
+        if !flag {
+            serviceUUIDList.append(serviceUUID)
+            print("追加")
+        }
     }
     @IBAction private func disConnectButton(_ sender: Any) {
     }
