@@ -114,6 +114,7 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("接続完了")
         peripheral.delegate = self
+        peripheral.discoverServices(serviceUUIDList)
     }
 
     // 接続が切断された時に呼び出し
@@ -135,5 +136,14 @@ extension BLEConnectViewController: CBPeripheralDelegate {
             return
         }
         print(peripheral.services)
+        guard let peripheralServices = peripheral.services else {
+            return
+        }
+        for service in peripheralServices {
+            print("Characteristicsの探索")
+            print(service)
+            peripheral.discoverCharacteristics(characteristicUUIDs,
+                                               for: service)
+        }
     }
 }
