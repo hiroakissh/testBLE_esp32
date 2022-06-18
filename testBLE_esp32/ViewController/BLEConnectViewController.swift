@@ -17,14 +17,14 @@ class BLEConnectViewController: UIViewController {
     }
 }
 
-//extension BLEConnectViewController: CBCentralManagerDelegate {
-//    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-//        <#code#>
-//    }
-//
-//
-//}
-//
-//extension BLEConnectViewController: CBPeripheralDelegate {
-//
-//}
+extension BLEConnectViewController: CBCentralManagerDelegate {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        <#code#>
+    }
+
+
+}
+
+extension BLEConnectViewController: CBPeripheralDelegate {
+
+}
