@@ -112,12 +112,23 @@
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-RE-1r0">
+                                <rect key="frame" x="150" y="193" width="114" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="接続"/>
+                                <connections>
+                                    <action selector="connectButton:" destination="egj-uS-7ii" eventType="touchUpInside" id="B0H-0v-Zhh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tcF-ja-ojP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="inputUUIDTextFeild" destination="WEl-TN-YYc" id="a62-jk-Jgq"/>
+                        <outlet property="inputUUIDTextField" destination="WEl-TN-YYc" id="zvv-A0-dg1"/>
+                        <outlet property="receive1Label" destination="fON-P3-BU2" id="EB9-KK-ZYo"/>
+                        <outlet property="receive2Label" destination="Cpo-z5-esr" id="wj2-IA-9Dg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apx-ee-HBL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

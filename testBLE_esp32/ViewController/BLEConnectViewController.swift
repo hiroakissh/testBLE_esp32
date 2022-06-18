@@ -9,7 +9,10 @@ import UIKit
 import CoreBluetooth
 
 class BLEConnectViewController: UIViewController {
-    @IBOutlet weak var inputUUIDTextFeild: UITextField!
+    @IBOutlet private weak var receive1Label: UILabel!
+    @IBOutlet private weak var receive2Label: UILabel!
+    @IBOutlet private weak var inputUUIDTextField: UITextField!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,8 @@ class BLEConnectViewController: UIViewController {
     }
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true)
+    }
+    @IBAction func connectButton(_ sender: Any) {
     }
 }
 
