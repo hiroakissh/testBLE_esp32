@@ -22,6 +22,7 @@ class BLEConnectViewController: UIViewController {
     private var serviceUUIDList: [CBUUID] = []
     private var characteristicUUIDList: [CBUUID] = []
     private var characteristicUUIDs: [CBUUID]?
+    private var peripheral: CBPeripheral?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +99,32 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
         default:
             break
         }
+    }
+
+    func centralManager(_ central: CBCentralManager,
+                        didDiscover peripheral: CBPeripheral,
+                        advertisementData: [String : Any],
+                        rssi RSSI: NSNumber) {
+        self.peripheral = peripheral
+
+        central.connect(peripheral)
+        print("接続開始")
+    }
+
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("接続完了")
+        peripheral.delegate = self
+    }
+
+    // 接続が切断された時に呼び出し
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("接続切断")
+        print(peripheral)
+    }
+
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print("接続できませんでした")
+        print(peripheral)
     }
 }
 
