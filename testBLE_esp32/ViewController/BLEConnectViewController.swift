@@ -129,5 +129,11 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
 }
 
 extension BLEConnectViewController: CBPeripheralDelegate {
-
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        guard error != nil else {
+            print(error.debugDescription)
+            return
+        }
+        print(peripheral.services)
+    }
 }
