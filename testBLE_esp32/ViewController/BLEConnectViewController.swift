@@ -13,6 +13,7 @@ class BLEConnectViewController: UIViewController {
     @IBOutlet private weak var receive2Label: UILabel!
     @IBOutlet private weak var inputUUIDTextField: UITextField!
 
+    private let uuidKEY = "uuidKEY"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +33,6 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         print("CentralManager didUpdateState")
     }
-
-
 }
 
 extension BLEConnectViewController: CBPeripheralDelegate {
