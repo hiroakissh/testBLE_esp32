@@ -80,6 +80,22 @@ class BLEConnectViewController: UIViewController {
 extension BLEConnectViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         print("CentralManager didUpdateState")
+        switch central.state {
+        case .poweredOn:
+            print("poweredOn")
+        case .poweredOff:
+            print("poweredOff")
+        case .resetting:
+            print("resetting")
+        case .unauthorized:
+            print("unauthorized")
+        case .unsupported:
+            print("unsupported")
+        case .unknown:
+            print("unknown")
+        default:
+            break
+        }
     }
 }
 
