@@ -11,7 +11,8 @@ import CoreBluetooth
 class BLEConnectViewController: UIViewController {
     @IBOutlet private weak var receive1Label: UILabel!
     @IBOutlet private weak var receive2Label: UILabel!
-    @IBOutlet private weak var inputUUIDTextField: UITextField!
+    @IBOutlet private weak var inputServiceUUIDTextField: UITextField!
+    @IBOutlet private weak var inputCharacteristicUUIDTextField: UITextField!
 
     private let uuidKEY = "uuidKEY"
     private var serviceUUID = ""
@@ -26,7 +27,7 @@ class BLEConnectViewController: UIViewController {
     }
 
     func validationServiceUUIDRecord() -> Bool {
-        serviceUUID = inputUUIDTextField.text ?? ""
+        serviceUUID = inputServiceUUIDTextField.text ?? ""
         for str in serviceUUIDList {
             if serviceUUID == str {
                 print("追加しない")
@@ -37,7 +38,7 @@ class BLEConnectViewController: UIViewController {
     }
 
     func validationCharacteristicUUIDRecord() -> Bool {
-        characteristicUUID = inputUUIDTextField.text ?? ""
+        characteristicUUID = inputCharacteristicUUIDTextField.text ?? ""
         for str in characteristicUUIDList {
             if characteristicUUID == str {
                 print("追加しない")
@@ -51,6 +52,8 @@ class BLEConnectViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBAction private func connectButton(_ sender: Any) {
+        guard let serviceUUID = inputServiceUUIDTextField.text, let characteristicUUID = inputCharacteristicUUIDTextField.text, !serviceUUID.isEmpty && !characteristicUUID.isEmpty
+        else { return }
         let flag = validationServiceUUIDRecord()
         if !flag {
             serviceUUIDList.append(serviceUUID)
