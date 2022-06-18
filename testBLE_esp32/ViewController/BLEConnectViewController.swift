@@ -146,4 +146,18 @@ extension BLEConnectViewController: CBPeripheralDelegate {
                                                for: service)
         }
     }
+
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        print(service)
+        guard let serviceCharacteristics = service.characteristics else { return }
+        for characteristics in serviceCharacteristics {
+            if characteristics.uuid == CBUUID(string: inputCharacteristicUUIDTextField.text ?? "") {
+                self.currentCharacteristicUUID = characteristics
+            }
+        }
+
+        if self.currentCharacteristicUUID != nil {
+            print("送受信可能")
+        }
+    }
 }
