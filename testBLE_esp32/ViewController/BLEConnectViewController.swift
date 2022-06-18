@@ -83,8 +83,10 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
         switch central.state {
         case .poweredOn:
             print("poweredOn")
+            centralManager?.scanForPeripherals(withServices: serviceUUIDList)
         case .poweredOff:
             print("poweredOff")
+            centralManager?.stopScan()
         case .resetting:
             print("resetting")
         case .unauthorized:
