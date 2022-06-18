@@ -15,8 +15,6 @@ class BLEConnectViewController: UIViewController {
     @IBOutlet private weak var inputCharacteristicUUIDTextField: UITextField!
 
     private let uuidKEY = "uuidKEY"
-    private var serviceUUID = ""
-    private var characteristicUUID = ""
     private var serviceUUIDList: [String] = []
     private var characteristicUUIDList: [String] = []
 
@@ -26,23 +24,14 @@ class BLEConnectViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func validationServiceUUIDRecord() -> Bool {
-        serviceUUID = inputServiceUUIDTextField.text ?? ""
-        for str in serviceUUIDList {
-            if serviceUUID == str {
-                print("追加しない")
-                return true
-            }
-        }
-        return false
-    }
-
-    func validationCharacteristicUUIDRecord() -> Bool {
-        characteristicUUID = inputCharacteristicUUIDTextField.text ?? ""
-        for str in characteristicUUIDList {
-            if characteristicUUID == str {
-                print("追加しない")
-                return true
+    func validationUUIDRecord(_ serviceUUID: String, _ characteristicUUID: String) -> Bool {
+        for serviceSTR in serviceUUIDList {
+            if serviceUUID == serviceSTR{
+                for characteristicSTR in characteristicUUIDList {
+                    if characteristicUUID == characteristicSTR {
+                        return true
+                    }
+                }
             }
         }
         return false
@@ -54,11 +43,15 @@ class BLEConnectViewController: UIViewController {
     @IBAction private func connectButton(_ sender: Any) {
         guard let serviceUUID = inputServiceUUIDTextField.text, let characteristicUUID = inputCharacteristicUUIDTextField.text, !serviceUUID.isEmpty && !characteristicUUID.isEmpty
         else { return }
-        let flag = validationServiceUUIDRecord()
+        let flag = validationUUIDRecord(
+            serviceUUID,
+            characteristicUUID
+        )
         if !flag {
             serviceUUIDList.append(serviceUUID)
-            print("追加")
+            characteristicUUIDList.append(characteristicUUID)
         }
+        
     }
     @IBAction private func disConnectButton(_ sender: Any) {
     }
