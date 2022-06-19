@@ -17,7 +17,6 @@ class BLEConnectViewController: UIViewController {
     var centralManager: CBCentralManager?
 
     private let uuidKEY = "uuidKEY"
-    private var currentServiceUUID: CBUUID?
     private var currentCharacteristicUUID: CBCharacteristic?
     private var serviceUUIDList: [CBUUID] = []
     private var characteristicUUIDList: [CBUUID] = []
