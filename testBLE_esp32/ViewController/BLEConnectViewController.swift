@@ -30,17 +30,23 @@ class BLEConnectViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func validationUUIDRecord(_ serviceUUID: CBUUID, _ characteristicUUID: CBUUID) -> Bool {
+    func validationUUIDRecord(_ serviceUUID: CBUUID, _ characteristicUUID: CBUUID) -> (Bool,Bool) {
         for serviceSTR in serviceUUIDList {
             if serviceUUID == serviceSTR {
                 for characteristicSTR in characteristicUUIDList {
                     if characteristicUUID == characteristicSTR {
-                        return true
+                        return (true,true)
                     }
                 }
+                return (true, false)
             }
         }
-        return false
+        for characteristicSTR in characteristicUUIDList {
+            if characteristicUUID == characteristicSTR {
+                return (false,true)
+            }
+        }
+        return (false,false)
     }
 
     private func setup(_ serviceUUID: CBUUID, _ characteristicUUID: CBUUID) {
@@ -66,8 +72,10 @@ class BLEConnectViewController: UIViewController {
             serviceUUID,
             characteristicUUID
         )
-        if !flag {
+        if !flag.0 {
             serviceUUIDList.append(serviceUUID)
+        }
+        if !flag.1 {
             characteristicUUIDList.append(characteristicUUID)
         }
         setup(serviceUUID, characteristicUUID)
