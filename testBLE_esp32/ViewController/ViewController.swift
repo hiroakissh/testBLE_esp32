@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+//        setup()
     }
 
     private func setup() {
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func connectionAction(_ sender: Any) {
-        setup()
+//        setup()
     }
 
     @IBAction func moveButtonAction(_ sender: Any) {

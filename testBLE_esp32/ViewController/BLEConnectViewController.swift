@@ -131,12 +131,13 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
 
 extension BLEConnectViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        guard error != nil else {
+        guard error == nil else {
             print(error.debugDescription)
             return
         }
         print(peripheral.services)
         guard let peripheralServices = peripheral.services else {
+            print("peripheralServices無し")
             return
         }
         for service in peripheralServices {
@@ -148,8 +149,10 @@ extension BLEConnectViewController: CBPeripheralDelegate {
     }
 
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        print(service)
-        guard let serviceCharacteristics = service.characteristics else { return }
+        print("serviceの内容\n\(service)")
+        guard let serviceCharacteristics = service.characteristics else {
+            return
+        }
         for characteristics in serviceCharacteristics {
             if characteristics.uuid == CBUUID(string: inputCharacteristicUUIDTextField.text ?? "") {
                 self.currentCharacteristicUUID = characteristics
@@ -158,6 +161,44 @@ extension BLEConnectViewController: CBPeripheralDelegate {
 
         if self.currentCharacteristicUUID != nil {
             print("送受信可能")
+            receiveData()
+        }
+    }
+
+    private func receiveData() {
+        guard let characteristic = currentCharacteristicUUID else {
+            return
+        }
+        print("通知，表示の有効")
+        peripheral?.setNotifyValue(true, for: characteristic)
+    }
+
+    // データ送信時
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        print("データ送信")
+    }
+
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        print("データの受信")
+
+        guard error == nil else { return }
+        guard let data = characteristic.value else { return }
+        updateLabel1Data(data: data)
+    }
+
+    private func updateLabel1Data(data: Data) {
+        if let dataString = String(data: data,
+                                   encoding: .utf8) {
+            print(dataString)
+            receive1Label.text = dataString
+        }
+    }
+
+    private func updateLabel2Data(data: Data) {
+        if let dataString = String(data: data,
+                                   encoding: .utf8) {
+            print(dataString)
+            receive2Label.text = dataString
         }
     }
 }
