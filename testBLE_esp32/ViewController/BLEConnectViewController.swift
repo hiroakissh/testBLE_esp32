@@ -194,7 +194,12 @@ extension BLEConnectViewController: CBPeripheralDelegate {
 
         guard error == nil else { return }
         guard let data = characteristic.value else { return }
-        updateLabel1Data(data: data)
+        if characteristic.uuid == CBUUID(string: "beb5483e-36e1-4688-b7f5-ea07361b26a8") {
+            updateLabel1Data(data: data)
+        } else if characteristic.uuid == CBUUID(string: "beb5483e-36e1-4688-b7f5-ea07361b26a7") {
+            updateLabel2Data(data: data)
+        }
+
     }
 
     private func updateLabel1Data(data: Data) {
