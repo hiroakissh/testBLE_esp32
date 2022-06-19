@@ -32,7 +32,7 @@ class BLEConnectViewController: UIViewController {
 
     func validationUUIDRecord(_ serviceUUID: CBUUID, _ characteristicUUID: CBUUID) -> Bool {
         for serviceSTR in serviceUUIDList {
-            if serviceUUID == serviceSTR{
+            if serviceUUID == serviceSTR {
                 for characteristicSTR in characteristicUUIDList {
                     if characteristicUUID == characteristicSTR {
                         return true
@@ -51,7 +51,6 @@ class BLEConnectViewController: UIViewController {
 
         currentServiceUUID = serviceUUID
         characteristicUUIDs = [characteristicUUID]
-
     }
 
     @IBAction private func backButton(_ sender: Any) {
@@ -73,6 +72,10 @@ class BLEConnectViewController: UIViewController {
         }
         setup(serviceUUID, characteristicUUID)
     }
+    @IBAction private func nextConnectButton(_ sender: Any) {
+
+    }
+
 
     @IBAction private func disConnectButton(_ sender: Any) {
     }
