@@ -55,8 +55,7 @@ class BLEConnectViewController: UIViewController {
         centralManager = CBCentralManager()
         centralManager?.delegate = self
 
-        currentServiceUUID = serviceUUID
-        characteristicUUIDs = [characteristicUUID]
+        characteristicUUIDs = characteristicUUIDList
     }
 
     @IBAction private func backButton(_ sender: Any) {
@@ -95,6 +94,7 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
         switch central.state {
         case .poweredOn:
             print("poweredOn")
+            print(serviceUUIDList)
             centralManager?.scanForPeripherals(withServices: serviceUUIDList)
         case .poweredOff:
             print("poweredOff")
@@ -116,9 +116,11 @@ extension BLEConnectViewController: CBCentralManagerDelegate {
                         didDiscover peripheral: CBPeripheral,
                         advertisementData: [String : Any],
                         rssi RSSI: NSNumber) {
+        // TODO: ここでperipheralの選択をしたい
         self.peripheral = peripheral
 
         central.connect(peripheral)
+        print(peripheral)
         print("接続開始")
     }
 
@@ -151,6 +153,7 @@ extension BLEConnectViewController: CBPeripheralDelegate {
             print("peripheralServices無し")
             return
         }
+        print(peripheralServices)
         for service in peripheralServices {
             print("Characteristicsの探索")
             print(service)
@@ -164,24 +167,22 @@ extension BLEConnectViewController: CBPeripheralDelegate {
         guard let serviceCharacteristics = service.characteristics else {
             return
         }
+        print(serviceCharacteristics)
         for characteristics in serviceCharacteristics {
-            if characteristics.uuid == CBUUID(string: inputCharacteristicUUIDTextField.text ?? "") {
-                self.currentCharacteristicUUID = characteristics
+            for selfCharacteristics in characteristicUUIDList {
+                print("characteristics\n\(characteristics)")
+                print("selfCharacteristics\n\(selfCharacteristics)")
+                if characteristics.uuid == selfCharacteristics {
+                    print("送受信可能")
+                    receiveData(characteristics)
+                }
             }
-        }
-
-        if self.currentCharacteristicUUID != nil {
-            print("送受信可能")
-            receiveData()
         }
     }
 
-    private func receiveData() {
-        guard let characteristic = currentCharacteristicUUID else {
-            return
-        }
+    private func receiveData(_ currentCharacteristic: CBCharacteristic) {
         print("通知，表示の有効")
-        peripheral?.setNotifyValue(true, for: characteristic)
+        peripheral?.setNotifyValue(true, for: currentCharacteristic)
     }
 
     // データ送信時
