@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     var kRXCBCharacteristic_2: CBCharacteristic?
     var charcteristicUUIDs: [CBUUID]!
 
+    var centralManagerclass = CentralManager()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

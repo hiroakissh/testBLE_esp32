@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		537431B028609FF200FDC9E4 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537431AF28609FF200FDC9E4 /* CentralManager.swift */; };
 		53BB2CC12859E52C004535F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB2CC02859E52C004535F9 /* AppDelegate.swift */; };
 		53BB2CC32859E52C004535F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB2CC22859E52C004535F9 /* SceneDelegate.swift */; };
 		53BB2CC52859E52C004535F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB2CC42859E52C004535F9 /* ViewController.swift */; };
@@ -14,11 +15,11 @@
 		53BB2CCA2859E52D004535F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53BB2CC92859E52D004535F9 /* Assets.xcassets */; };
 		53BB2CCD2859E52D004535F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53BB2CCB2859E52D004535F9 /* LaunchScreen.storyboard */; };
 		53BB2CD52859E553004535F9 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB2CD42859E553004535F9 /* Device.swift */; };
-		53BB2CD72859E567004535F9 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB2CD62859E567004535F9 /* DeviceManager.swift */; };
 		53BB2CD92859F01F004535F9 /* BLEConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB2CD82859F01F004535F9 /* BLEConnectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		537431AF28609FF200FDC9E4 /* CentralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
 		53BB2CBD2859E52C004535F9 /* testBLE_esp32.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testBLE_esp32.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BB2CC02859E52C004535F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53BB2CC22859E52C004535F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		53BB2CCC2859E52D004535F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53BB2CCE2859E52D004535F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53BB2CD42859E553004535F9 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		53BB2CD62859E567004535F9 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		53BB2CD82859F01F004535F9 /* BLEConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEConnectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				53BB2CD42859E553004535F9 /* Device.swift */,
-				53BB2CD62859E567004535F9 /* DeviceManager.swift */,
+				537431AF28609FF200FDC9E4 /* CentralManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,9 +166,9 @@
 				53BB2CC52859E52C004535F9 /* ViewController.swift in Sources */,
 				53BB2CC12859E52C004535F9 /* AppDelegate.swift in Sources */,
 				53BB2CC32859E52C004535F9 /* SceneDelegate.swift in Sources */,
-				53BB2CD72859E567004535F9 /* DeviceManager.swift in Sources */,
 				53BB2CD52859E553004535F9 /* Device.swift in Sources */,
 				53BB2CD92859F01F004535F9 /* BLEConnectViewController.swift in Sources */,
+				537431B028609FF200FDC9E4 /* CentralManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
