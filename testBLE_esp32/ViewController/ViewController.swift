@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     var kRXCBCharacteristic_2: CBCharacteristic?
     var charcteristicUUIDs: [CBUUID]!
 
-    var centralManagerclass = CentralManager()
+//    var centralManagerclass = CentralManager()
 
 
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func connectionAction(_ sender: Any) {
-//        setup()
+        setup()
     }
 
     @IBAction func moveButtonAction(_ sender: Any) {
@@ -71,7 +71,10 @@ extension ViewController: CBCentralManagerDelegate {
                                                options: nil)
             print("poweredOn")
             print("スキャン中")
+        case .unsupported:
+            print("unsupported")
         default:
+            print("Default")
             break
         }
     }

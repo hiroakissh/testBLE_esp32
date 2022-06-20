@@ -21,8 +21,12 @@ class CentralManager: NSObject, CBCentralManagerDelegate {
 
     var centralManager: CBCentralManager?
 
+    init(centralManager: CBCentralManager) {
+        self.centralManager = centralManager
+    }
+
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        print(centralManager.state)
+        print(centralManager?.state)
         switch central.state {
         case .poweredOn:
             print("poweredOn")

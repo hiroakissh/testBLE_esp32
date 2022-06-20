@@ -54,7 +54,7 @@ class BLEConnectViewController: UIViewController {
         centralManager = CBCentralManager()
         centralManager?.delegate = self
 
-        characteristicUUIDs = characteristicUUIDList
+//        characteristicUUIDs = characteristicUUIDList
     }
 
     @IBAction private func backButton(_ sender: Any) {
